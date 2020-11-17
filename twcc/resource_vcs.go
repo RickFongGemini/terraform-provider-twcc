@@ -216,7 +216,7 @@ func resourceVCSRead(d *schema.ResourceData, meta interface{}) error {
     log.Printf("[DEBUG] Retrieved twcc_vcs %s", d.Id())
     d.Set("create_time", data["create_time"])
     d.Set("desc", data["desc"])
-    d.Set("public_ip", data["ext_net"])
+    d.Set("public_ip", data["public_ip"])
     serversInfo := flattenSiteServersInfo(data["servers"].([]interface{}))
     d.Set("servers", serversInfo)
     d.Set("status", data["status"])
