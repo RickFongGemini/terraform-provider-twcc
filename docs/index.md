@@ -11,6 +11,8 @@ The Taiwan Computing Cloud (TWCC) Provider is used to interact with the many res
 
 User should get API Key before using twcc provider.
 
+The latest version is v0.1.3
+
 ## Example Usage
 
 Terraform 0.13 and later:
@@ -20,7 +22,7 @@ terraform {
   required_providers {
     twcc = {
       source  = "gemini/twcc"
-      version = "~> 1.0.0"
+      version = "0.1.3"
     }
   }
 }

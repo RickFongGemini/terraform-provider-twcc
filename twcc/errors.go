@@ -92,15 +92,27 @@ func (e ErrDefault400) Error() string {
 }
 
 func (e ErrDefault401) Error() string {
-    return "Unauthorized API Key"
+    e.DefaultErrString = fmt.Sprintf(
+        "Unauthorized with: [%s %s], error message: %s",
+        e.Method, e.URL, e.Body,
+    )
+    return e.choseErrString()
 }
 
 func (e ErrDefault403) Error() string {
-    return "Permission denied"
+    e.DefaultErrString = fmt.Sprintf(
+        "Permission denied with: [%s %s], error message: %s",
+        e.Method, e.URL, e.Body,
+    )
+    return e.choseErrString()
 }
 
 func (e ErrDefault404) Error() string {
-    return "Resource not found"
+    e.DefaultErrString = fmt.Sprintf(
+        "Resource not found with: [%s %s], error message: %s",
+        e.Method, e.URL, e.Body,
+    )
+    return e.choseErrString()
 }
 
 func (e ErrDefault409) Error() string {
